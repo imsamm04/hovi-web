@@ -1,0 +1,63 @@
+.layout {
+  width: 100%;
+}
+
+.stepContainer {
+  z-index: 11;
+  width: 100%;
+  background-color: #fff;
+  position: fixed !important;
+  padding: 10px 24px !important;
+}
+
+.stepTitle {
+  margin-bottom: 5px;
+}
+
+.contentContainer {
+  display: flex;
+  position: fixed !important;
+  width: 100%;
+  height: calc(100vh - 188px) !important; // 188px = 64px(Header) + 126px(steps) -2px border
+  margin-top: 124px;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding: 15px 24px 0 24px;
+  background: #f0f2f5;
+}
+
+.bodyCard {
+  overflow-y: hidden;
+  height: calc(100vh - 268px);
+
+  &:hover {
+    overflow-y: auto !important;
+  }
+}
+
+.bodyCardHost {
+  height: calc(100vh - 260px);
+}
+
+.actionBtn {
+  text-align: center;
+  width: 100%;
+}
+
+.highlightLabel {
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+}
+
+.highlightSuccess {
+  font-size: 18px;
+  color: green;
+  font-weight: bold;
+}
+
+.highlightFail {
+  font-size: 18px;
+  color: red;
+  font-weight: bold;
+}

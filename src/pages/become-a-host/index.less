@@ -1,0 +1,129 @@
+.layout {
+  height: 100%;
+  min-height: 100vh !important;
+}
+
+// css header
+.baseHeader {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 !important;
+  background: #fff !important;
+}
+
+// css logo header
+.baseLogo {
+  margin: 0 24px;
+  width: 30px;
+  font-family: cursive;
+  font-size: x-large;
+  font-weight: bold;
+  user-select: none
+}
+
+.stepTitle {
+  user-select: none;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  line-height: 1.4444444444444444em !important;
+  color: #484848 !important;
+  margin-bottom: 0 !important;
+}
+
+.content {
+  height: 100%;
+  margin-top: 64px;
+  color: #484848
+}
+
+.mainContent {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: -webkit-fill-available;
+  background: #fafafa;
+}
+
+.container {
+  width: 60%;
+  height: calc(100vh - 64px);
+  background: #fff;
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+}
+
+.subContainer {
+  position: fixed;
+  width: 40%;
+  height: calc(100vh - 71px);
+  right: 0;
+  bottom: 0;
+  min-height: 650px;
+  max-height: 1500px;
+  object-fit: cover;
+  background-image: url(https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 10px 10px 34px -6px rgba(0, 0, 0, 0.7);
+  @media (max-width: 740px) {
+    display: none;
+  }
+}
+
+.helper {
+  padding: auto;
+}
+
+.formatContainer {
+  max-width: 650px;
+  margin-left: auto;
+  height: 100%;
+  padding: 30px 24px 0;
+}
+
+.notFixed {
+  display: inline-table;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+.fixed {
+  z-index: 3;
+  position: fixed;
+  width: calc(60% - 48px);
+  max-width: 602px;
+  bottom: 0;
+  right: calc(40% + 24px);
+  @media (max-width: 740px) {
+    width: calc(100% - 48px);
+    right: 24px;
+  }
+}
+
+.footerLine {
+  height: 1px;
+  position: relative;
+  background: #fff;
+  padding-bottom: 16px;
+  box-shadow: 0 -9px 15px -5px rgba(0, 0, 0, 0.09);
+}
+
+.footer {
+  background: #fff;
+  height: 56px;
+}
+
+.backBtn {
+  float: left;
+  padding: 0 !important;
+}
+
+.nextBtn {
+  float: right;
+}

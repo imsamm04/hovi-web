@@ -1,0 +1,51 @@
+@-webkit-keyframes ant-progress-active {
+  0% {
+    opacity: 0.2;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+@keyframes ant-progress-active {
+  0% {
+    opacity: 0.2;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+.processBar {
+  position: absolute;
+  height: 7px;
+  width: 100%;
+  bottom: -7px;
+  background-color: #edefed;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  transition: all .4s cubic-bezier(.08, .82, .17, 1) 0s;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+    opacity: 0;
+    -webkit-animation: ant-progress-active 2.4s cubic-bezier(.23, 1, .32, 1) infinite;
+    animation: ant-progress-active 2.4s cubic-bezier(.23, 1, .32, 1) infinite;
+    content: '';
+  }
+}
+
+.filler {
+  background-image: linear-gradient(to right, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 100%);
+  height: 100%;
+  transition: width .2s ease-in;
+}

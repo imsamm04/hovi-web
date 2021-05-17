@@ -1,0 +1,113 @@
+.list {
+  height: 100%;
+  width: 100%;
+  padding: 16px 16px 0 24px !important;
+}
+
+.list2 {
+  height: 100%;
+  width: 100%;
+  padding: 16px 64px 0 80px !important;
+}
+
+.itemCol {
+  padding-right: 16px !important;
+}
+
+.metaItemShowMap {
+  width: calc(100% - 310px);
+  padding: 12px 16px;
+}
+
+.descriptionParagraph {
+  font-size: 16px;
+  font-weight: 600;
+  color: #484848;
+  line-height: 22px;
+  margin-bottom: 0 !important;
+}
+
+.cardItem {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 2px 8px;
+  border-color: rgba(0, 0, 0, 0.09);
+}
+
+.cardItemShowMap {
+  margin-bottom: 16px;
+  padding: 0 !important;
+  box-shadow: none;
+  border-bottom: none !important;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 8px;
+    border-color: rgba(0, 0, 0, 0.09);
+  }
+}
+
+.borderCardItem {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.imageCarousel {
+  padding: 5px;
+}
+
+.detailItem {
+  position: absolute !important;
+  width: calc(100% - 32px);
+  bottom: 12px;
+}
+
+.itemTitle {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #484848;
+  cursor: pointer;
+}
+
+//
+.pagination {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.skeleton {
+  flex: 1 1 0;
+  padding-left: 0 !important;
+  padding-right: 16px !important;
+
+  &:first-child {
+    padding-left: 8px !important;
+  }
+}
+
+.rowSkeleton {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow: hidden;
+}
+
+.resultTitle {
+  display: flex;
+  align-items: center;
+  color: rgb(72, 72, 72) !important;
+  font-size: 18px !important;
+  font-family: inherit !important;;
+}
+
+.filterTag {
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+
+.responsiveMap {
+  width: 55%;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+}

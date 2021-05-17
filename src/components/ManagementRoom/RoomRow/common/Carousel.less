@@ -1,0 +1,83 @@
+.image {
+  height: 160px;
+
+  @media (min-width: 576px) {
+    height: 200px;
+  }
+
+  @media (min-width: 768px) {
+    height: 160px;
+  }
+
+  @media (min-width: 992px) {
+    height: 200px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 200px;
+  }
+
+  @media (min-width: 1600px) {
+    height: 230px;
+  }
+}
+
+.dots {
+  margin: 0 0 25px 0;
+  padding: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.nextBtn {
+  &:before {
+    opacity: 0 !important;
+  }
+}
+
+.prevBtn {
+  &:before {
+    opacity: 0 !important;
+  }
+}
+
+.nextBtnHover {
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%) !important;
+
+  &:before {
+    opacity: 1 !important;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+  }
+}
+
+.prevBtn {
+  &:before {
+    opacity: 0 !important;
+  }
+}
+
+.prevBtnHover {
+  background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%) !important;
+
+  &:before {
+    opacity: 1 !important;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+  }
+}
+
+.likeBtn {
+  z-index: 1;
+  position: absolute !important;
+  border: none !important;
+  top: 12px;
+  left: 10px;
+}
+
+.likeIcon {
+  font-size: 25px;
+}

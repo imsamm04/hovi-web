@@ -1,0 +1,75 @@
+@import '~antd/es/style/themes/default.less';
+
+.item{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.layout {
+  min-height: 100%;
+  padding: 24px;
+  background: rgb(240, 242, 245);
+}
+
+.footer {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 700px;
+  padding: 10px 16px;
+  text-align: right;
+  right: 0;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 -9px 15px -5px rgba(0, 0, 0, 0.09);
+}
+
+.contentComponent {
+  margin-bottom: 50px;
+}
+
+.main {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  overflow: auto;
+
+  .leftMenu {
+    border-right: @border-width-base @border-style-base @border-color-split;
+
+    :global {
+      .ant-menu-inline {
+        border: none;
+      }
+
+      .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    max-width: 100% !important;
+    padding: 8px 40px;
+
+    .title{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+    }
+
+    .titleContent {
+      color: @heading-color;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      padding-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.inputFieldOuterContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.inputFieldContainer {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 10px 0;
+}
+
+.messageInput {
+  width: calc(100% - 76px) !important;
+  border: none !important;
+  resize: none !important;
+
+  &:focus {
+    border-color: #ffffff;
+    outline: none;
+    box-shadow: none !important;
+  }
+}
+
+.inputFieldContainer .ant-btn {
+  border: none;
+}

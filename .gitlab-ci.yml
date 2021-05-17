@@ -1,0 +1,72 @@
+## Get docker-compose image from https://hub.docker.com/r/tmaier/docker-compose
+services:
+  - docker:dind
+
+stages:
+  - test
+  - image_build
+  - deploy_live
+
+variables:
+  # use the overlay storage driver
+  # https://docs.gitlab.com/ce/ci/docker/using_docker_build.html#using-the-overlayfs-driver
+  DOCKER_DRIVER: overlay
+  WEB_CACHE_IMAGE: registry.gitlab.com/hovi-team-development/hovi-web
+
+test:
+  stage: test
+  image: thuongnn1997/docker:stable
+  only:
+    - master
+    - production
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  script:
+    - cd ./docker
+    - docker pull ${WEB_CACHE_IMAGE}:latest || true
+    - docker-compose up --build --abort-on-container-exit
+    - docker push ${WEB_CACHE_IMAGE}:latest
+  artifacts:
+    name: "web-test-reports-$CI_PIPELINE_ID-$CI_COMMIT_REF_NAME"
+    when: always
+    paths:
+      - ./test-reports/index.html
+
+image_build:
+  stage: image_build
+  image: docker:stable
+  only:
+    - production
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  script:
+    - docker pull ${WEB_CACHE_IMAGE}/prod:builder || true
+    - docker pull ${WEB_CACHE_IMAGE}/prod:latest || true
+    - docker build
+      --target builder
+      --cache-from ${WEB_CACHE_IMAGE}/prod:builder
+      --tag ${WEB_CACHE_IMAGE}/prod:builder
+      --file ./Dockerfile.prod
+      "."
+    - docker build
+      --cache-from ${WEB_CACHE_IMAGE}/prod:builder
+      --cache-from ${WEB_CACHE_IMAGE}/prod:latest
+      --tag ${WEB_CACHE_IMAGE}/prod:latest
+      --file ./Dockerfile.prod
+      "."
+    - docker push ${WEB_CACHE_IMAGE}/prod:builder
+    - docker push ${WEB_CACHE_IMAGE}/prod:latest
+
+deploy_live:
+  stage: deploy_live
+  image: dwdraju/gke-kubectl-docker
+  only:
+    - production
+  when: manual
+  script:
+    - echo "$GCLOUD_SERVICE_KEY" > key.json
+    - gcloud auth activate-service-account --key-file=key.json
+    - gcloud config set project $GCP_PROJECT_ID
+    - gcloud container clusters get-credentials $CLUSTER_NAME --zone $CLUSTER_ZONE --project $GCP_PROJECT_ID
+    - kubectl version
+    - kubectl apply -f ./k8s/deployment.yaml

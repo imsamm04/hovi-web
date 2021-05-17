@@ -1,0 +1,107 @@
+.searchBox {
+  display: flex;
+  margin-top: 10px;
+}
+
+.element {
+  width: 100%;
+}
+
+.containerElement {
+
+}
+
+.listIcon {
+  overflow: auto;
+  width: 385px;
+  height: 150px;
+}
+
+.btnCustom {
+  padding: 0;
+}
+
+.description {
+  padding: 10px;
+}
+
+.btnOk {
+  margin-left: 5px;
+}
+
+.labels {
+  mirgin-top: -3px;
+  padding: 5px;
+  position: absolute;
+  visibility: visible;
+  z-index: 3;
+}
+
+.isLabelHover {
+  z-index: 999 !important;
+}
+
+.labels.active {
+  background: grey;
+}
+
+.labels.hover {
+  background-color: yellow;
+}
+
+.arrow {
+  display: none;
+}
+
+.inner {
+  background-color: #1890ff;
+  border-radius: 4px;
+  color: #FFFFFF;
+  max-width: 200px;
+  padding: 3px 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px, rgba(0, 0, 0, 0.18) 0 1px 2px;
+}
+
+.isHover {
+  background: #ff4d4f;
+}
+
+.isHoverArrow {
+  border-top-color: #ff4d4f;
+}
+
+.hide {
+  display: none;
+}
+
+.ggMap {
+  position: fixed;
+  height: calc(100vh - 112px);
+  width: 45%;
+  margin-left: 55%;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+}
+
+.mapElement {
+  height: 100%;
+}
+
+.spinGGMap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:global {
+  .gm-style-iw-t::after {
+    //display: none;
+    width: 0 !important;
+  }
+}

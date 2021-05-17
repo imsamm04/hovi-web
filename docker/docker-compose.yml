@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  web-test:
+    build:
+      context: ../
+      cache_from:
+        - registry.gitlab.com/hovi-team-development/hovi-web:latest
+    image: registry.gitlab.com/hovi-team-development/hovi-web:latest
+    container_name: web-test
+    command: npm run test
+    volumes:
+      - ../:/usr/src/app
+      - /usr/src/app/node_modules
+

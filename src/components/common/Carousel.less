@@ -1,0 +1,70 @@
+.image {
+  height: 200px;
+  cursor: pointer;
+}
+
+.isCustomHeightImage {
+  height: 200px;
+}
+
+.isMessagesPage {
+  height: 277px;
+}
+
+.isTransactionPage {
+  height: 200px;
+}
+
+.dots {
+  margin: 0 0 25px 0;
+  padding: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.nextBtn {
+  &:before {
+    opacity: 0 !important;
+  }
+}
+
+.nextBtnHover {
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%) !important;
+
+  &:before {
+    opacity: 1 !important;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+  }
+}
+
+.prevBtn {
+  &:before {
+    opacity: 0 !important;
+  }
+}
+
+.prevBtnHover {
+  background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%) !important;
+
+  &:before {
+    opacity: 1 !important;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+  }
+}
+
+.likeBtn {
+  z-index: 1;
+  position: absolute !important;
+  color: #fff !important;
+  top: 12px;
+  right: 0;
+}
+
+.likeIcon {
+  font-size: 25px;
+}

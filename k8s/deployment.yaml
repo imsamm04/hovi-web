@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: hovi-web
+  name: hovi-web
+  annotations:
+    date: '26-12-2019'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: hovi-web
+      tier: client
+  template:
+    metadata:
+      labels:
+        run: hovi-web
+        tier: client
+    spec:
+      containers:
+        - name: hovi-web
+          image: registry.gitlab.com/hovi-team-development/hovi-web/prod:latest
+          imagePullPolicy: Always
+          env:
+            # Use secret in real usage
+            - name: ENDPOINT
+              value: https://api.homohouse.vn
+            - name: ES_ENDPOINT
+              value: https://es.homohouse.vn
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      imagePullSecrets:
+        - name: gitlab-key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hovi-web-svc
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    run: hovi-web
+  type: NodePort
